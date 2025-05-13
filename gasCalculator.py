@@ -1,3 +1,5 @@
+import datetime
+
 class gasCalculator:
      #data in format date-miles-price or miles-price
 
@@ -31,6 +33,8 @@ class gasCalculator:
             price+=int(row[1])
         efficiency= float(miles/price)
         return efficiency
+
+
 
     def getEfficiency(self):
         return(self.__calcTotalEfficiency())    
