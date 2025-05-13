@@ -2,25 +2,22 @@ import datetime
 
 class userInterface:
 
-    data=[]
-    miles=0
-    cost=0
-
     def __init__(self):
-        data=[]
-        miles=0
-        cost=0
+        self.data=[]
+        self.miles=0
+        self.cost=0
 
+    #takes in user data plan to adjust in the future 
     def userInputData(self):
 
-        miles=input('how many miles did you drive')
+        self.miles=input('how many miles did you drive')
 
-        cost=input('how much did you pay?')
+        self.cost=input('how much did you pay?')
 
-        date=datetime.date.today()
+        self.date=datetime.date.today()
 
-        data=[date,miles,cost]
+        self.data=[self.date,self.miles,self.cost]
 
-        return data
+        return self.data
 
 

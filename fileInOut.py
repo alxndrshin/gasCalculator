@@ -2,7 +2,6 @@ import csv
 
 class fileInOut:
 
-    
 
     def __init__(self):
         self.dataList=[]
