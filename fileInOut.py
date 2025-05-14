@@ -6,6 +6,12 @@ class fileInOut:
     def __init__(self):
         self.dataList=[]
 
+
+
+    # DONT FORGET TO CHANGE TO A TRY EXCEPT
+
+
+
     #opens and reads in file
     #file in format date-miles-price 
     #date in format yyyy-mm-dd miles to tenths prices to hundredths
