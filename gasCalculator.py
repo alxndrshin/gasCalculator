@@ -2,7 +2,9 @@ import datetime
 
 class gasCalculator:
      #data in format date-miles-price or miles-price
-
+    def __init__(self):
+        self.data=[]
+        self.workingData=[]
 
     #instance variables: rawData, workingData
     def __init__(self,data):
