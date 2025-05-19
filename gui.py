@@ -46,25 +46,6 @@ import datetime
 
 #    root.mainloop()
 
-# def startUp():
-#    root=Tk()
-#    root.title('Welcome')
-
-#    root.minsize(width=500,height=250)
-#    root.columnconfigure(0, weight=1)
-#    root.rowconfigure(0, weight=1)
-
-#    def input():
-#       inputForm()
-
-
-#    frame=ttk.Frame(root,padding="3 3 12 12")
-#    frame.grid(column=0, row=0, sticky=(N, W, E, S))
-#    ttk.Label(frame,text='Welcome').grid(column=4,row=1,sticky=(W,E))
-#    ttk.Button(frame,text='Input',command=input).grid(column=2,row=3,sticky=(W,E))
-   
-   
-#    root.mainloop()
 
 class gui(tk.Tk):
    def __init__(self,*args,**kwargs):
@@ -77,12 +58,13 @@ class gui(tk.Tk):
       
       self.frames={}
 
-      for F in (welcomePage,calcPage,dataPage):
+      for F in (welcomePage,dataPage,calcPage):
          frame=F(container,self)
          self.frames[F]=frame
 
          frame.grid(row = 0, column = 0, sticky ="nsew")
-      self.showFrame=("welcomePage")
+
+      self.showFrame=(welcomePage)
    
    def showFrame(self, pageName):
       frame = self.frames[pageName]
@@ -91,7 +73,7 @@ class gui(tk.Tk):
   
 
 
-class welcomePage(ttk.Frame):
+class welcomePage(tk.Frame):
    def __init__(self,parent,controller):
       tk.Frame.__init__(self, parent)
         
@@ -104,7 +86,7 @@ class welcomePage(ttk.Frame):
       calcButton = ttk.Button(self, text ="Gas Calculator",command = lambda : controller.showFrame(calcPage))
       calcButton.grid(row = 2, column = 1, padx = 10, pady = 10)
 
-class dataPage(ttk.Frame):
+class dataPage(tk.Frame):
    def __init__(self,parent,controller):
       tk.Frame.__init__(self, parent)
       label = ttk.Label(self, text ="Data Input")
@@ -130,7 +112,7 @@ class dataPage(ttk.Frame):
          pass
 
 
-class calcPage(ttk.Frame):
+class calcPage(tk.Frame):
    def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         label = ttk.Label(self, text ="Gas Calculator")
@@ -139,5 +121,5 @@ class calcPage(ttk.Frame):
         backButton = ttk.Button(self, text ="Back",command = lambda : controller.showFrame(welcomePage))
         backButton.grid(row = 1, column = 4, padx = 10, pady = 10)
 
-gui=gui()
-gui.runThis()
+guiTester=gui()
+guiTester.mainloop()
