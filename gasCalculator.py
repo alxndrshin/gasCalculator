@@ -23,6 +23,7 @@ class gasCalculator:
             newData=[]
             newData.append(each[1])
             newData.append(each[2])
+            newData.append(each[3])
             self.workingData.append(newData)
 
     def __calcTotalEfficiency(self):

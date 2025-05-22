@@ -13,8 +13,8 @@ class fileInOut:
 
 
     #opens and reads in file
-    #file in format date-miles-price 
-    #date in format yyyy-mm-dd miles to tenths prices to hundredths
+    #file in format date-miles-price-gallons 
+    #date in format yyyy-mm-dd miles to tenths prices to hundredths gallons to tenth
     #return is a list of lists 
     def __fileRead(self):
         with open('gasData.csv',newline='' ) as fileData:
