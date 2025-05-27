@@ -45,9 +45,9 @@ class gasCalculator:
         totalDollars=0
 
         for item in self.workingData:
-            totalMiles+=item[0]
-            totalGallons+=item[1]
-            totalDollars+=item[2]
+            totalMiles+=float(item[0])
+            totalDollars+=float(item[1])
+            totalGallons+=float(item[2])
             datapoints+=1
 
         self.mpg=totalMiles/totalGallons
@@ -71,7 +71,7 @@ class gasCalculator:
     def runner(self,choice):
         if choice==1:
             self.calculate()
-            return self.getMPG()
+            print('Your efficiency is: ',round(self.getMPG(),2),' MPG')
         if choice==2:
             self.calculate()
-            return self.getMPD()
+            print('Your efficiency is: ',round(self.getMPD(),2),' MPD')

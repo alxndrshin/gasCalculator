@@ -36,7 +36,7 @@ class main():
                 choice=int(input('1 for MPG, 2 for MPD'))
                 #run with newest data
                 self.calculator.updateData(self.data)
-                print('your efficiency is: ',round(self.calculator.runner(choice),2),' miles/dollar')
+                self.calculator.runner(choice)
             else:
                 print(choice,' That is not an available option')
         print('Thank you') 
