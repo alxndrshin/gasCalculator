@@ -18,7 +18,8 @@ class gasCalculator:
         self.rawData=data
         self.workingData=[]
         self.__calcWorkingData(self.rawData)
-        self.calculate()
+        if len(self.workingData)!=0:
+            self.calculate()
         #print(self.workingData)
 
  #efficiency will be calculated using the cost 1 previous to the milage used
@@ -68,8 +69,9 @@ class gasCalculator:
         return self.mpd    
     
     def runner(self,choice):
-        self.calculate()
         if choice==1:
+            self.calculate()
             return self.getMPG()
         if choice==2:
+            self.calculate()
             return self.getMPD()
