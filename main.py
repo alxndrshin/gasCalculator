@@ -20,7 +20,7 @@ class main():
         keepGoing= True
         while keepGoing:
             print('What would you like to do today?')
-            choice=int(input('0 for quit, 1 for add data, 2 for calculate efficiency, '))
+            choice=int(input('0 for quit, 1 for add data, 2 for calculate efficiency, 3 for date information'))
             if choice == 0:
                 keepGoing= False
             elif choice == 1:
@@ -36,6 +36,8 @@ class main():
                 choice=int(input('1 for MPG, 2 for MPD'))
                 #run with newest data
                 self.calculator.updateData(self.data)
+                self.calculator.runner(choice)
+            elif choice == 3:
                 self.calculator.runner(choice)
             else:
                 print(choice,' That is not an available option')

@@ -1,5 +1,6 @@
 import datetime
 import fileInOut
+from datetime import datetime
 
 class gasCalculator:
      #data in format date-miles-price or miles-price
@@ -53,6 +54,14 @@ class gasCalculator:
         self.mpg=totalMiles/totalGallons
         self.mpd=totalMiles/totalDollars
 
+    def fillTime(self,choice):
+        #determine average time between fills can recomend whether you should refill soon
+        dates=[]
+        for date in self.rawData:
+            newDate= datetime.strptime(date[0],'%Y-%m-%d')
+            dates.append(newDate)
+            
+        
     def updateData(self):
         self.rawData=self.dataLoader.getData()
         self.__calcWorkingData(self.rawData)
@@ -75,3 +84,5 @@ class gasCalculator:
         if choice==2:
             self.calculate()
             print('Your efficiency is: ',round(self.getMPD(),2),' MPD')
+        if choice==3:
+            self.fillTime(choice)
