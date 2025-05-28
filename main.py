@@ -20,7 +20,7 @@ class main():
         keepGoing= True
         while keepGoing:
             print('What would you like to do today?')
-            choice=int(input('0 for quit, 1 for add data, 2 for calculate efficiency, 3 for date information'))
+            choice=int(input('0 for quit, 1 for add data, 2 for calculate efficiency, 3 for dates filled'))
             if choice == 0:
                 keepGoing= False
             elif choice == 1:

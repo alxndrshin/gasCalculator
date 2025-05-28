@@ -10,6 +10,7 @@ class gasCalculator:
         self.workingData=[]
         self.mpd=0
         self.mpg=0
+        self.dates=[]
 
     #instance variables: rawData, workingData
     def __init__(self,data):
@@ -18,9 +19,11 @@ class gasCalculator:
         self.dataLoader=fileInOut.fileInOut()
         self.rawData=data
         self.workingData=[]
+        self.dates=[]
         self.__calcWorkingData(self.rawData)
         if len(self.workingData)!=0:
             self.calculate()
+            self.fillTime()
         #print(self.workingData)
 
  #efficiency will be calculated using the cost 1 previous to the milage used
@@ -35,6 +38,7 @@ class gasCalculator:
             newData.append(each[2])
             newData.append(each[3])
             self.workingData.append(newData)
+            self.fillTime
 
     def calculate(self):
         #calculates different efficiencies to be stored for retrieval
@@ -54,14 +58,16 @@ class gasCalculator:
         self.mpg=totalMiles/totalGallons
         self.mpd=totalMiles/totalDollars
 
-    def fillTime(self,choice):
+    def fillTime(self):
         #determine average time between fills can recomend whether you should refill soon
-        dates=[]
-        for date in self.rawData:
-            newDate= datetime.strptime(date[0],'%Y-%m-%d')
-            dates.append(newDate)
+        for dateVar in self.rawData:
+            newDate= datetime.strptime(dateVar[0],'%Y-%m-%d')
+            self.dates.append(newDate)
             
-        
+    def printDates(self):
+        for date in self.dates:
+            print(date) 
+
     def updateData(self):
         self.rawData=self.dataLoader.getData()
         self.__calcWorkingData(self.rawData)
@@ -85,4 +91,4 @@ class gasCalculator:
             self.calculate()
             print('Your efficiency is: ',round(self.getMPD(),2),' MPD')
         if choice==3:
-            self.fillTime(choice)
+            self.printDates()
